@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigInteger;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -75,5 +76,33 @@ class CalculatorTest {
         BigInteger result = Calculator.performOperation(num1, num2, BigInteger::divide);
 
         Assertions.assertEquals(expected, result);
+    }
+
+    @Test
+    public void testPerformOperation_AdditionWithMultipleNumbers() {
+        List<BigInteger> numbers = List.of(BigInteger.valueOf(2), BigInteger.valueOf(3), BigInteger.valueOf(4));
+        BigInteger sum = Calculator.performOperation(numbers, BigInteger::add);
+        Assertions.assertEquals(BigInteger.valueOf(9), sum);
+    }
+
+    @Test
+    public void testPerformOperation_MultiplicationWithMultipleNumbers() {
+        List<BigInteger> numbers = List.of(BigInteger.valueOf(2), BigInteger.valueOf(3), BigInteger.valueOf(4));
+        BigInteger product = Calculator.performOperation(numbers, BigInteger::multiply);
+        Assertions.assertEquals(BigInteger.valueOf(24), product);
+    }
+
+    @Test
+    public void testPerformOperation_SubtractionWithMultipleNumbers() {
+        List<BigInteger> numbers = List.of(BigInteger.valueOf(2), BigInteger.valueOf(3), BigInteger.valueOf(4));
+        BigInteger sum = Calculator.performOperation(numbers, BigInteger::subtract);
+        Assertions.assertEquals(BigInteger.valueOf(-5), sum);
+    }
+
+    @Test
+    public void testPerformOperation_DivisionWithMultipleNumbers() {
+        List<BigInteger> numbers = List.of(BigInteger.valueOf(32), BigInteger.valueOf(4), BigInteger.valueOf(2));
+        BigInteger product = Calculator.performOperation(numbers, BigInteger::divide);
+        Assertions.assertEquals(BigInteger.valueOf(4), product);
     }
 }
