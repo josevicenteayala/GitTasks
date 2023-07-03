@@ -25,10 +25,7 @@ public class Calculator {
     }
 
     public static BigInteger performOperation(List<BigInteger> numbers, BinaryOperator<BigInteger> binaryOperator) {
-        BigInteger result = numbers.get(0);
-        for (int i = 1; i < numbers.size(); i++) {
-            result = binaryOperator.apply(result, numbers.get(i));
-        }
+        BigInteger result = numbers.stream().reduce(binaryOperator).orElse(BigInteger.ZERO);
         logger.log(System.Logger.Level.INFO, String.format("The intermediate result is %s", result));
         return result;
     }
