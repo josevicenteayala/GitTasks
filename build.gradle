@@ -8,5 +8,4 @@ repositories {
 
 subprojects {
     apply plugin: 'java'
-    sourceCompatibility = JavaVersion.VERSION_17
 }
