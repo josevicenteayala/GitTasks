@@ -55,3 +55,5 @@ replay_pid*
 /web/target/
 /admin/target/
 /.idea/
+/.gradle/
+/.idea/
